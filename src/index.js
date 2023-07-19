@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { pizzaData } from "./data.js";
-function App() {
+const App = () => {
   return (
     <div>
       <Header />
@@ -9,7 +9,7 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 const Header = () => {
   return <h1>Fast React Pizza Co.</h1>;
@@ -40,7 +40,7 @@ const Footer = () => {
   );
 };
 
-function Pizza({ name, ingredients, price, photoName }) {
+const Pizza = ({ name, ingredients, price, photoName }) => {
   return (
     <div>
       <h2>{name}</h2>
@@ -49,7 +49,7 @@ function Pizza({ name, ingredients, price, photoName }) {
       <img alt="Pizza" src={photoName} />
     </div>
   );
-}
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
