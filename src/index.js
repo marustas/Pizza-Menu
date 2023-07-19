@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { pizzaData } from "./data.js";
-const { name, ingredients, price, photoName } = pizzaData[0];
 function App() {
   return (
     <div>
@@ -20,18 +19,25 @@ const Menu = () => {
   return (
     <div>
       <h2>Our menu</h2>
-      <Pizza
-        name={name}
-        ingredients={ingredients}
-        price={price}
-        photoName={photoName}
-      />
+      {pizzaData.map((pizza, i) => {
+        return (
+          <Pizza
+            key={i}
+            name={pizzaData[i].name}
+            ingredients={pizzaData[i].ingredients}
+            price={pizzaData[i].price}
+            photoName={pizzaData[i].photoName}
+          />
+        );
+      })}
     </div>
   );
 };
 
 const Footer = () => {
-  return <footer>{new Date().toLocaleTimeString()}We're currently open</footer>;
+  return (
+    <footer>{new Date().toLocaleTimeString()}. We're currently open</footer>
+  );
 };
 
 function Pizza({ name, ingredients, price, photoName }) {
