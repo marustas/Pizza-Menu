@@ -16,6 +16,12 @@ function App() {
   );
 }
 
+const Header = () => {};
+
+const Menu = () => {};
+
+const Footer = () => {};
+
 function Pizza({ name, ingredients, price, photoName }) {
   return (
     <div>
