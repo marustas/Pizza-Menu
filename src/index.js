@@ -50,7 +50,7 @@ const Footer = () => {
 const Pizza = ({ name, ingredients, price, photoName }) => {
   return (
     <div>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{ingredients}</p>
       <p>{price}</p>
       <img alt="Pizza" src={photoName} />
