@@ -5,22 +5,27 @@ const { name, ingredients, price, photoName } = pizzaData[0];
 function App() {
   return (
     <div>
-      <h1>Hello, React</h1>
+      <Header />
       <Pizza
         name={name}
         ingredients={ingredients}
         price={price}
         photoName={photoName}
       />
+      <Footer />
     </div>
   );
 }
 
-const Header = () => {};
+const Header = () => {
+  return <h1>Fast React Pizza Co.</h1>;
+};
 
 const Menu = () => {};
 
-const Footer = () => {};
+const Footer = () => {
+  return <footer>{new Date().toLocaleTimeString()}We're currently open</footer>;
+};
 
 function Pizza({ name, ingredients, price, photoName }) {
   return (
