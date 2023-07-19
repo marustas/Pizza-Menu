@@ -6,12 +6,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Pizza
-        name={name}
-        ingredients={ingredients}
-        price={price}
-        photoName={photoName}
-      />
+      <Menu />
       <Footer />
     </div>
   );
@@ -21,7 +16,19 @@ const Header = () => {
   return <h1>Fast React Pizza Co.</h1>;
 };
 
-const Menu = () => {};
+const Menu = () => {
+  return (
+    <div>
+      <h2>Our menu</h2>
+      <Pizza
+        name={name}
+        ingredients={ingredients}
+        price={price}
+        photoName={photoName}
+      />
+    </div>
+  );
+};
 
 const Footer = () => {
   return <footer>{new Date().toLocaleTimeString()}We're currently open</footer>;
