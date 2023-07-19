@@ -22,7 +22,7 @@ function Pizza({ name, ingredients, price, photoName }) {
       <h2>{name}</h2>
       <p>{ingredients}</p>
       <p>{price}</p>
-      <img alt="Pizza Photo" src={photoName} />
+      <img alt="Pizza" src={photoName} />
     </div>
   );
 }
