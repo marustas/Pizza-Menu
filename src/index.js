@@ -19,6 +19,7 @@ const Header = () => {
     </header>
   );
 };
+//Menu is Parent
 
 const Menu = () => {
   return (
@@ -26,6 +27,7 @@ const Menu = () => {
       <h2>Our menu</h2>
       {pizzaData.map((pizza, i) => {
         return (
+          //Pizza is child and name, ingredients, price and photoName are its props
           <Pizza
             name={pizzaData[i].name}
             ingredients={pizzaData[i].ingredients}
@@ -47,12 +49,13 @@ const Footer = () => {
 };
 
 const Pizza = (props) => {
+  const { name, ingredients, photoName, price } = props;
   return (
     <div>
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-      <p>{props.price}</p>
-      <img alt={props.name} src={props.photoName} />
+      <h3>{name}</h3>
+      <p>{ingredients}</p>
+      <p>{price}</p>
+      <img alt={name} src={photoName} />
     </div>
   );
 };
