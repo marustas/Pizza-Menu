@@ -27,7 +27,6 @@ const Menu = () => {
       {pizzaData.map((pizza, i) => {
         return (
           <Pizza
-            key={i}
             name={pizzaData[i].name}
             ingredients={pizzaData[i].ingredients}
             price={pizzaData[i].price}
