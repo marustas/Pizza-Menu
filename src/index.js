@@ -46,13 +46,13 @@ const Footer = () => {
   );
 };
 
-const Pizza = ({ name, ingredients, price, photoName }) => {
+const Pizza = (props) => {
   return (
     <div>
-      <h3>{name}</h3>
-      <p>{ingredients}</p>
-      <p>{price}</p>
-      <img alt={name} src={photoName} />
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+      <p>{props.price}</p>
+      <img alt={props.name} src={props.photoName} />
     </div>
   );
 };
