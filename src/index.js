@@ -28,12 +28,14 @@ const Menu = () => {
       {pizzaData.map((pizza, i) => {
         return (
           //Pizza is child and name, ingredients, price and photoName are its props
-          <Pizza
-            name={pizzaData[i].name}
-            ingredients={pizzaData[i].ingredients}
-            price={pizzaData[i].price}
-            photoName={pizzaData[i].photoName}
-          />
+          <div className="pizza">
+            <Pizza
+              name={pizzaData[i].name}
+              ingredients={pizzaData[i].ingredients}
+              price={pizzaData[i].price}
+              photoName={pizzaData[i].photoName}
+            />
+          </div>
         );
       })}
     </main>
