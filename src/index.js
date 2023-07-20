@@ -52,7 +52,7 @@ const Pizza = ({ name, ingredients, price, photoName }) => {
       <h3>{name}</h3>
       <p>{ingredients}</p>
       <p>{price}</p>
-      <img alt="Pizza" src={photoName} />
+      <img alt={name} src={photoName} />
     </div>
   );
 };
