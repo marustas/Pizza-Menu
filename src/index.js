@@ -19,23 +19,26 @@ const Header = () => {
     </header>
   );
 };
-//Menu is Parent
 
+//Menu is Parent
 const Menu = () => {
+  const pizzas = pizzaData;
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <ul className="pizzas">
-        {
-          // Example of list rendering: creating one component for each element of array
-          //Instead of .map((item)=>{return(Component)}) do .map((item)=>(Component))
-          pizzaData.map((pizza) => (
-            //Pizza is child, therefore: name, ingredients, price and photoName are its props,
-            // but since they're in an object, we pass this object as props and get props.pizzaObj
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))
-        }
-      </ul>
+      {pizzas && (
+        <ul className="pizzas">
+          {
+            // Example of list rendering: creating one component for each element of array
+            //Instead of .map((item)=>{return(Component)}) do .map((item)=>(Component))
+            pizzaData.map((pizza) => (
+              //Pizza is child, therefore: name, ingredients, price and photoName are its props,
+              // but since they're in an object, we pass this object as props and get props.pizzaObj
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))
+          }
+        </ul>
+      )}
     </main>
   );
 };
@@ -45,7 +48,6 @@ const Footer = () => {
   const openHour = 12;
   const closeHour = 24;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
 
   return (
     <footer className="footer">
