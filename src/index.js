@@ -101,27 +101,14 @@ const Order = ({ openHour, closeHour }) => {
 const Pizza = (props) => {
   const { name, ingredients, photoName, price, soldOut } = props.pizzaObj;
   return (
-    <div>
-      {soldOut ? (
-        <li className="pizza sold-out">
-          <img alt={name} src={photoName} />
-          <div>
-            <h3>{name}</h3>
-            <p>{ingredients}</p>
-            <span>{price}</span>
-          </div>
-        </li>
-      ) : (
-        <li className="pizza">
-          <img alt={name} src={photoName} />
-          <div>
-            <h3>{name}</h3>
-            <p>{ingredients}</p>
-            <span>{price}</span>
-          </div>
-        </li>
-      )}
-    </div>
+    <li className={`pizza ${soldOut ? "sold-out" : ""}`}>
+      <img alt={name} src={photoName} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{soldOut ? "SOLD OUT" : price}</span>
+      </div>
+    </li>
   );
 };
 
