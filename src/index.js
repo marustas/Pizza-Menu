@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { pizzaData } from "./data.js";
 import "./index.css";
+
 const App = () => {
   return (
     <div className="container">
@@ -72,16 +73,18 @@ const Footer = () => {
   );
 };
 
-const Order = (props) => {
+const Order = ({ openHour, closeHour }) => {
   return (
     <div className="order">
       <p>
-        We're open until {props.closeHour}:00. Come visit us or order online.
+        We're open from {openHour}:00 till {closeHour}:00. Come visit us or
+        order online.
       </p>
       <button className="btn">Order</button>
     </div>
   );
 };
+
 const Pizza = (props) => {
   const { name, ingredients, photoName, price } = props.pizzaObj;
   return (
