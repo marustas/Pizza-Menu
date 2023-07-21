@@ -25,19 +25,22 @@ const Menu = () => {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      {pizzaData.map((pizza) => {
-        return (
-          //Pizza is child and name, ingredients, price and photoName are its props
-          <div className="pizza">
-            <Pizza
-              name={pizza.name}
-              ingredients={pizza.ingredients}
-              price={pizza.price}
-              photoName={pizza.photoName}
-            />
-          </div>
-        );
-      })}
+      {
+        // Example of list rendering- creating one component for each element of array
+        pizzaData.map((pizza) => {
+          return (
+            //Pizza is child, therefore: name, ingredients, price and photoName are its props
+            <div className="pizza">
+              <Pizza
+                name={pizza.name}
+                ingredients={pizza.ingredients}
+                price={pizza.price}
+                photoName={pizza.photoName}
+              />
+            </div>
+          );
+        })
+      }
     </main>
   );
 };
