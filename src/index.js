@@ -61,12 +61,7 @@ const Footer = () => {
       {
         //condition is false renders nothing, if true renders the JSX after the &&
         isOpen ? (
-          <div className="order">
-            <p>
-              We're open until {closeHour}:00. Come visit us or order online.
-            </p>
-            <button className="btn">Order</button>
-          </div>
+          <Order openHour={openHour} closeHour={closeHour} />
         ) : (
           <p>
             We're happy to welome you between {openHour}:00 and {closeHour}:00.
@@ -77,6 +72,16 @@ const Footer = () => {
   );
 };
 
+const Order = (props) => {
+  return (
+    <div className="order">
+      <p>
+        We're open until {props.closeHour}:00. Come visit us or order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
+  );
+};
 const Pizza = (props) => {
   const { name, ingredients, photoName, price } = props.pizzaObj;
   return (
