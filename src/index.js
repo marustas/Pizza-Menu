@@ -28,21 +28,34 @@ const Menu = () => {
     <main className="menu">
       <h2>Our menu</h2>
       {
-        //Short circuiting: The result of operation will be the condition value if False,
-        // if condition is True/False, React will not render it
-        //Short circuiting example: ConditionVariable > 0 && (Component)
+        /*
+        Short circuiting: The result of operation will be the condition value if False,
+        if condition is True/False, React will not render it
+        Short circuiting example: ConditionVariable > 0 && (Component)
+        */
         pizzaNum > 0 ? (
-          <ul className="pizzas">
-            {
-              // Example of list rendering: creating one component for each element of array
-              //Instead of .map((item)=>{return(Component)}) do .map((item)=>(Component))
-              pizzaData.map((pizza) => (
-                //Pizza is child, therefore: name, ingredients, price and photoName are its props,
-                // but since they're in an object, we pass this object as props and get props.pizzaObj
-                <Pizza pizzaObj={pizza} key={pizza.name} />
-              ))
-            }
-          </ul>
+          /*
+          Using <> creates a React Fragment
+          /React Fragment allows to return several childern Components,
+           without messing their logic and styling 
+           */
+          <>
+            <p>
+              Authentic Italian cuisine. 6 creative dishes to choose from. All
+              from our stone oven, all organic, all delicicous.
+            </p>
+            <ul className="pizzas">
+              {
+                // Example of list rendering: creating one component for each element of array
+                //Instead of .map((item)=>{return(Component)}) do .map((item)=>(Component))
+                pizzaData.map((pizza) => (
+                  //Pizza is child, therefore: name, ingredients, price and photoName are its props,
+                  // but since they're in an object, we pass this object as props and get props.pizzaObj
+                  <Pizza pizzaObj={pizza} key={pizza.name} />
+                ))
+              }
+            </ul>
+          </>
         ) : (
           <p>We're still working on our menu. Please come back later.</p>
         )
@@ -86,16 +99,29 @@ const Order = ({ openHour, closeHour }) => {
 };
 
 const Pizza = (props) => {
-  const { name, ingredients, photoName, price } = props.pizzaObj;
+  const { name, ingredients, photoName, price, soldOut } = props.pizzaObj;
   return (
-    <li className="pizza">
-      <img alt={name} src={photoName} />
-      <div>
-        <h3>{name}</h3>
-        <p>{ingredients}</p>
-        <span>{price}</span>
-      </div>
-    </li>
+    <div>
+      {soldOut ? (
+        <li className="pizza sold-out">
+          <img alt={name} src={photoName} />
+          <div>
+            <h3>{name}</h3>
+            <p>{ingredients}</p>
+            <span>{price}</span>
+          </div>
+        </li>
+      ) : (
+        <li className="pizza">
+          <img alt={name} src={photoName} />
+          <div>
+            <h3>{name}</h3>
+            <p>{ingredients}</p>
+            <span>{price}</span>
+          </div>
+        </li>
+      )}
+    </div>
   );
 };
 
