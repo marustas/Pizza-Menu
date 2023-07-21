@@ -29,7 +29,8 @@ const Menu = () => {
       {
         //Short circuiting: The result of operation will be the condition value if False,
         // if condition is True/False, React will not render it
-        pizzaNum > 0 && (
+        //Short circuiting example: ConditionVariable > 0 && (Component)
+        pizzaNum > 0 ? (
           <ul className="pizzas">
             {
               // Example of list rendering: creating one component for each element of array
@@ -41,6 +42,8 @@ const Menu = () => {
               ))
             }
           </ul>
+        ) : (
+          <p>We're still working on our menu. Please come back later.</p>
         )
       }
     </main>
@@ -57,13 +60,17 @@ const Footer = () => {
     <footer className="footer">
       {
         //condition is false renders nothing, if true renders the JSX after the &&
-        isOpen && (
+        isOpen ? (
           <div className="order">
             <p>
               We're open until {closeHour}:00. Come visit us or order online.
             </p>
             <button className="btn">Order</button>
           </div>
+        ) : (
+          <p>
+            We're happy to welome you between {openHour}:00 and {closeHour}:00.
+          </p>
         )
       }
     </footer>
