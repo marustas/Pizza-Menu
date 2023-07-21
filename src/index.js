@@ -49,12 +49,17 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {isOpen && (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
-      )}
+      {
+        //condition is false renders nothing, if true renders the JSX after the &&
+        isOpen && (
+          <div className="order">
+            <p>
+              We're open until {closeHour}:00. Come visit us or order online.
+            </p>
+            <button className="btn">Order</button>
+          </div>
+        )
+      }
     </footer>
   );
 };
