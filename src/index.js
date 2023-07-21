@@ -31,12 +31,7 @@ const Menu = () => {
           return (
             //Pizza is child, therefore: name, ingredients, price and photoName are its props
             <div className="pizza">
-              <Pizza
-                name={pizza.name}
-                ingredients={pizza.ingredients}
-                price={pizza.price}
-                photoName={pizza.photoName}
-              />
+              <Pizza pizzaObj={pizza} key={pizza.name} />
             </div>
           );
         })
@@ -54,13 +49,15 @@ const Footer = () => {
 };
 
 const Pizza = (props) => {
-  const { name, ingredients, photoName, price } = props;
+  const { name, ingredients, photoName, price } = props.pizzaObj;
   return (
     <div>
-      <h3>{name}</h3>
-      <p>{ingredients}</p>
-      <p>{price}</p>
       <img alt={name} src={photoName} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{price}</span>
+      </div>
     </div>
   );
 };
